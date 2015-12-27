@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.fma.common.date.FCalendar;
-
 @SuppressWarnings("serial")
 public class CacheObject<K, V> implements Serializable {
 
@@ -25,7 +23,7 @@ public class CacheObject<K, V> implements Serializable {
 			SECOND, MINUTE, HOUR, DAY, WEEK, MONDAY
 		}
 
-		private Date createdDate = FCalendar.getInstance().getTime();
+		private Date createdDate = Calendar.getInstance().getTime();
 		private Date expiredDate = null;
 		private int value;
 		private TimeDependencyType type;
@@ -40,7 +38,7 @@ public class CacheObject<K, V> implements Serializable {
 		public void add(int value, TimeDependencyType type) {
 			this.value = value;
 			this.type = type;
-			Calendar cal = FCalendar.getInstance();
+			Calendar cal = Calendar.getInstance();
 			cal.setTime(createdDate);
 			switch (type) {
 			case DAY: {
@@ -73,7 +71,7 @@ public class CacheObject<K, V> implements Serializable {
 
 		@Override
 		public void restart() {
-			createdDate = FCalendar.getInstance().getTime();
+			createdDate = Calendar.getInstance().getTime();
 			add(value, type);
 		}
 	}

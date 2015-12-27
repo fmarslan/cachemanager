@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * Copyright (c) 2015  FMA
+ * Fatih Mehmet ARSLAN
+ * fmarslan06@gmail.com
+ *******************************************************************************/
 package com.fma.common.cache;
 
 import java.io.Serializable;
